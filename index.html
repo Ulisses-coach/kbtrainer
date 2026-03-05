@@ -1,0 +1,113 @@
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #4e73df, #1cc88a);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .login-container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            width: 300px;
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4e73df;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: #2e59d9;
+        }
+
+        .error {
+            color: red;
+            margin-top: 10px;
+            font-size: 14px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-container">
+        <h2>Login</h2>
+
+        <input type="email" id="email" placeholder="Digite seu e-mail">
+        <input type="password" id="senha" placeholder="Digite sua senha">
+
+        <button onclick="validarLogin()">Entrar</button>
+
+        <div class="error" id="mensagemErro">
+            e-mail ou senha incorretos
+        </div>
+    </div>
+    <script>
+        // Lista de usuários autorizados
+        const usuarios = [
+            { email: "kbtrainer@gmail.com", senha: "1a2b3c" },
+            { email: "ulisses@gmail.com", senha: "271075" },
+            { email: "ulisseskatarynne@gmail.com", senha: "277579uk@" },
+            { email: "bila@gmail.com", senha: "150576" }
+            // Adicione novos usuários aqui:
+            // { email: "cliente2@email.com", senha: "senha123" }
+        ];
+
+        function validarLogin() {
+            const emailDigitado = document.getElementById("email").value;
+            const senhaDigitada = document.getElementById("senha").value;
+
+            const usuarioValido = usuarios.find(usuario => 
+                usuario.email === emailDigitado && 
+                usuario.senha === senhaDigitada
+            );
+
+            if (usuarioValido) {
+                window.location.href = "kb.html";
+            } else {
+                document.getElementById("mensagemErro").style.display = "block";
+            }
+        }
+    </script>
+
+</body>
+</html>
+
+
+
+    
+</body>
+</html>
+
